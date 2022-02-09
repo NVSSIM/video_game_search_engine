@@ -14,8 +14,7 @@ import java.io.IOException;
 public class GameInfoListener {
     private final Logger logger = LoggerFactory.getLogger(GameInfoListener.class);
     private final RestHighLevelClient client;
-    public  GameInfoListener(RestHighLevelClient client) {
-        this.client = client;
+    public  GameInfoListener(RestHighLevelClient client) {this.client = client;
     }
     @RabbitListener(queues = AmqpConfiguration.GAME_INFO_QUEUE)
     public void OnMessage(String mess, @Header("game_id") String gameId) throws IOException{

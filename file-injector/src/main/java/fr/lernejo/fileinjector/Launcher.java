@@ -16,8 +16,7 @@ public class Launcher {
     public static void main(String[] args) throws IOException {
         if (args.length != 1) {
             System.out.println("only 1 parameter required");
-            return;
-        }
+            return;}
         try (AbstractApplicationContext springContext = new AnnotationConfigApplicationContext(Launcher.class)) {
             Game[] games = new ObjectMapper().readValue(Paths.get(args[0]).toFile(), Game[].class);
             RabbitTemplate rabbitTemplate = springContext.getBean(RabbitTemplate.class);
